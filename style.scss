@@ -1,0 +1,221 @@
+// Variables
+$color-1: #fcf166;
+$color-2: #966b49;
+$color-3: #38c2db;
+$dark-color: #333;
+$light-color: #eee;
+$success-color: #3ed63e;
+
+// Global Settings
+* {
+  font-family: "Slackey", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient($color-2, darken($color-2, 10));
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+// Utility Classes
+.container {
+  padding: 0 5%;
+}
+
+.box-shadow {
+  box-shadow: 2px 2px 10px #000;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px #000;
+}
+
+// Navbar & Footer
+.navbar,
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.navbar {
+  background-image: linear-gradient($color-3, darken($color-3, 15));
+  color: $color-1;
+  font-size: 1.4rem;
+
+  a {
+    text-shadow: none;
+  }
+}
+
+.footer {
+  background-color: $dark-color;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+
+  a {
+    color: $light-color;
+    text-decoration: none;
+  }
+}
+
+// Generator Wrapper
+.generator-wrapper {
+  display: relative;
+  margin-top: 1rem;
+
+  .mode-toggle-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    button {
+      cursor: pointer;
+      padding: 0.3rem 0;
+      width: 100%;
+      background-color: $dark-color;
+      border: none;
+
+      &:first-child {
+        border-right: 2px solid $color-3;
+      }
+    }
+
+    .toggled-btn {
+      background-color: $color-3;
+      transform: scale(1.1);
+      transition: 0.3s ease-in-out;
+    }
+  }
+
+  .text-mode {
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      background-color: darken($color-2, 20);
+      color: $color-1;
+      border: none;
+      resize: none;
+    }
+
+    .copied-text {
+      animation: copied 0.2s ease-in-out;
+    }
+
+    .label {
+      color: $light-color;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .meme-mode {
+    display: none;
+
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      background-color: darken($color-2, 20);
+      color: $color-1;
+      border: none;
+      resize: none;
+    }
+
+    .bottom-text {
+      display: none;
+    }
+
+    .label {
+      color: $light-color;
+      margin-bottom: 0.5rem;
+    }
+
+    .paste-areas {
+      .paste-areas__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+          cursor: pointer;
+          padding: 0.3rem 0;
+          width: 100%;
+          background-color: $dark-color;
+          border: none;
+
+          &:first-child {
+            border-right: 2px solid $color-1;
+          }
+        }
+
+        .toggled-btn {
+          background-color: $color-1;
+          transform: scale(1.1);
+          transition: 0.3s ease-in-out;
+        }
+      }
+    }
+
+    .mocking-meme-title {
+      color: $color-1;
+      margin-bottom: 0.5rem;
+    }
+
+    #meme-canvas {
+      width: 100%;
+      background-color: $light-color;
+      margin-bottom: 0.5rem;
+    }
+
+    .download-btn {
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      background-color: $color-3;
+      font-size: 1.3rem;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .download-btn:hover {
+      background-color: darken($color-3, 15);
+      transition: 0.3s;
+    }
+  }
+}
+
+@keyframes copied {
+  from {
+    background-color: $color-2;
+  }
+  to {
+    background-color: $color-3;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 25%;
+  }
+}

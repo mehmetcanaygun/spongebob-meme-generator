@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Slackey&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Mocking Spongebob Meme Generator | MCA</title>
+  </head>
+  <body>
+    <!--Navbar  -->
+    <nav class="navbar">
+      <p class="navbar__brand container text-shadow">
+        MOCKING SPONGEBOB MEME GENERATOR
+        <a href="https://github.com/mehmetcanaygun" target="_blank">by MCA</a>
+      </p>
+    </nav>
+
+    <!-- Generator Body -->
+    <div class="generator-wrapper container">
+      <div class="mode-toggle-buttons">
+        <button class="mocking-text-btn toggled-btn" onclick="toggleMode(this)">
+          Just Mocking Text
+        </button>
+        <button class="meme-btn" onclick="toggleMode(this)">
+          Give Me The Meme
+        </button>
+      </div>
+
+      <!-- Just Text Mode -->
+      <div class="text-mode">
+        <!-- Textarea to paste -->
+        <p class="label text-shadow">Paste or type your text here.</p>
+        <textarea
+          class="text-mode-paste"
+          rows="2"
+          placeholder="Your Text"
+          onkeyup="getTextTextMode(this.value)"
+        ></textarea>
+
+        <!-- Textarea to copy -->
+        <p class="label text-mode-copy-label text-shadow">
+          Click to copy the mocking test below.
+        </p>
+        <textarea
+          class="text-mode-copy"
+          rows="2"
+          placeholder="Mocking Text"
+          onclick="copyToClipboard(this, this.value)"
+        ></textarea>
+      </div>
+
+      <!-- Meme Mode -->
+      <div class="meme-mode">
+        <!-- Textarea to paste -->
+        <div class="paste-areas">
+          <div class="paste-areas__buttons">
+            <button class="top-text-btn toggled-btn" onClick="toggleArea(this)">
+              Top
+            </button>
+            <button class="bottom-text-btn" onClick="toggleArea(this)">
+              Bottom
+            </button>
+          </div>
+
+          <textarea
+            class="top-text"
+            rows="2"
+            placeholder="Top Text"
+            onkeyup="getText(this, this.value)"
+          ></textarea>
+          <textarea
+            class="bottom-text"
+            rows="2"
+            placeholder="Bottom Text"
+            onkeyup="getText(this, this.value)"
+          ></textarea>
+        </div>
+
+        <!-- Meme Canvas -->
+        <p class="mocking-meme-title text-shadow">Mocking SpongeBob Meme</p>
+        <canvas id="meme-canvas" class="box-shadow"></canvas>
+        <a
+          class="download-btn"
+          download="mocking-bob.png"
+          href=""
+          onclick="downloadImage(this)"
+          >Download</a
+        >
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- <footer class="footer">
+      <a href="https://github.com/mehmetcanaygun" target="_blank"
+        >Made by Mehmet Can Aygün</a
+      >
+    </footer> -->
+
+    <!-- JS -->
+    <script src="app.js"></script>
+  </body>
+</html>
